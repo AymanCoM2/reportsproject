@@ -1,0 +1,19 @@
+{
+    "Manage Report Categories": "ادارة أقسام التقارير",
+    "Manage Queries": "ادارة أكواد التقارير",
+    "Manage Roles": "ادارة الصلاحيات",
+    "Manage Users": "ادارة المستخدمين",
+    "Categories": "الأقسام",
+    "Search": "بحث",
+    "Category Name": "اسم القسم",
+    "Save New Category": "حفظ القسم",
+    "Create New Category": "انشاء قسم جديد",
+    "Not approved Yet": "لم يتم تأكيد الحساب حتى الان",
+    "Account Needs approval": "الحساب بحاجة الى التاكيد",
+    "Once your account is approved you Can access the Dashboard": "بمجرد الموافقة على الحساب يمكنك دخول صفحة التقارير",
+    "Go to Home": "الذهاب للصفحة الرئيسية",
+    "Pivot Token": "رابط جدول البيفوت ( مرة واحدة فقط)",
+    "Refresh Pivot Link": "تجديد الرابط" , 
+    "Pivot Token For a New Pivot" : "رابط لانشاء مجموعة بيفوت جديدة" , 
+    "Pivot Page" : "صفحة البيفوت"
+}
