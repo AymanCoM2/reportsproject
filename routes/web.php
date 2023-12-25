@@ -45,6 +45,8 @@ Route::get('language/{locale}', function ($locale) {
 })->name('name-switcher');
 
 
+// -------------------- This is the Pivots Code 
+
 Route::get('/user-pivots/{query_id}', function (Request $request) {
     $theQueryId  = $request->query_id;
     return view('pivot-frame', compact('theQueryId'));

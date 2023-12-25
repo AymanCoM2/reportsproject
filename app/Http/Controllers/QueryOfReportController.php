@@ -15,6 +15,7 @@ class QueryOfReportController extends Controller
 {
     public function index()
     {
+      
         // TODO Pagination
         $allQueries = QueryOfReport::all();
         return view('pages.manage-queries.index', compact('allQueries'));
@@ -35,11 +36,13 @@ class QueryOfReportController extends Controller
         $newQuery->sql_query_string = $request->f_sql_query_string;
         $newQuery->db_name = $request->db_name;
         $newQuery->save();
-        foreach ($arrayOfTags as $index => $tag) {
-            $tagLabel  = new QueryTag();
-            $tagLabel->tag = $tag;
-            $tagLabel->query_id  = $newQuery->id;
-            $tagLabel->save();
+        if ($arrayOfTags) {
+            foreach ($arrayOfTags as $index => $tag) {
+                $tagLabel  = new QueryTag();
+                $tagLabel->tag = $tag;
+                $tagLabel->query_id  = $newQuery->id;
+                $tagLabel->save();
+            }
         }
         DB::insert('insert into roles_queries (role_id, query_id) values (?, ?)', [1, $newQuery->id]);
         // ^ after adding the New Query , Use DB Facade to store it For the Admin Role 

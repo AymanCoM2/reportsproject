@@ -10,7 +10,7 @@
                     method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="float-right m-2 fa fa-trash button-solid  btn btn-link border-0">
+                    <button class="float-right m-2 fa fa-trash button-solid btn btn-link border-0">
                     </button>
                 </form>
             </div>

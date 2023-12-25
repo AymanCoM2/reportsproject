@@ -5,7 +5,6 @@ use App\Models\TempUd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
@@ -46,13 +45,6 @@ Route::post('/save-pivot', function (Request $request) {
 });
 
 
-Route::post('/get-uuid-data', function (Request $request) {
-  $jsonData = $request->json()->all();
-  $uuid = $jsonData['uuid'];
-  $tempOBject = TempUd::where('id', $uuid)->first();
-  return response()->json($tempOBject);
-});
-
 
 Route::post('/uuid-is-used', function (Request $request) {
   $jsonData = $request->json()->all();
@@ -61,4 +53,12 @@ Route::post('/uuid-is-used', function (Request $request) {
   $tempOBject->isUsed = true;
   $tempOBject->save();
   return response()->json(['stats' => 'Done']);
+});
+
+
+Route::post('/get-uuid-data', function (Request $request) {
+  $jsonData = $request->json()->all();
+  $uuid = $jsonData['uuid'];
+  $tempOBject = TempUd::where('id', $uuid)->first();
+  return response()->json($tempOBject);
 });

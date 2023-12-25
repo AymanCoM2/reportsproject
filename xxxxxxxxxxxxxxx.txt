@@ -1,0 +1,15 @@
+1- making request Classes For Controllers [ For Nulls In Forms ]
+2- Increase RunTime For the Datatables For "MSSQL" php 
+3- Pdf Export Issue [ Measure Data Size and then Determine the size of the PDF ]
+    - Auto Fitting the pdf 
+4- DataTable Edits [number floor-ceil,buttons,rtl+the layout+the label alignemt]
+5- FavIcon For the project is not reading it
+6- The Link for the Dashboard is not seen [Need to Be More Clear For the User to see it]
+7- Pivots [Overwriting , Renaming  ,  Saving Charts ]
+8- 
+
+-------------------------------
+SELECT T100.ItemCode ,T100.ItemName , T11.OnHand 'STOCK' , T11.WhsCode , LEFT(T11.WhsCode,2) 'LWhs' , RIGHT(T11.WhsCode,2)'RWhs'  
+From LB.DBO.Oitm T100 INNER JOIN LB.DBO.OITW T11 on T100.ITEMCODE =T11.ITEMCODE  
+WHERE T11.OnHand <> 0 AND T100.ItemName NOT LIKE N'%خصم%'
+-------------------------------

@@ -7,7 +7,7 @@
             <p class="float-right">{{ $singleQuery->created_at }}</p>
             <br>
             <hr>
-            <a href="{{ route('user-pivots', $singleQuery->id) }}" class="btn btn-info" target="_blank">
+            <a href="{{ route('user-pivots', $singleQuery->id) }}" class=" btn btn-primary shadow" target="_blank">
                 {{ __('Pivot Page') }}
             </a>
             <div class="card" style="display: none;">
@@ -91,15 +91,15 @@
                         dom: 'Bfrtip',
                         buttons: [{
                                 extend: 'csv',
-                                className: 'btn btn-primary shadow'
+                                className: 'btn btn-light btn-sm', // Use 'btn-light' for a lighter button and 'btn-sm' for a smaller size
                             }, {
                                 extend: 'excelHtml5',
-                                className: 'btn btn-primary shadow',
+                                className: 'btn btn-light btn-sm',
                                 title: null
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: ' btn btn-primary shadow',
+                                className: 'btn btn-light btn-sm',
                                 charset: "utf-8",
                                 pageSize: 'A0',
                                 bom: true,
@@ -120,29 +120,64 @@
                         data: x,
                         columns: columns,
                         initComplete: function() {
-                            $("#loader").text("")
-                            this.api()
-                                .columns()
-                                .every(function() {
-                                    let column = this;
-                                    let input = document.createElement('input');
-                                    input.classList.add("rounded");
-                                    input.classList.add("d-block");
-                                    input.classList.add("border-primary");
-                                    input.classList.add("shadow");
-                                    column.header().append(input);
-                                    input.addEventListener('input', () => {
-                                        if (column.search() !== this
-                                            .value) {
-                                            column.search(input.value)
-                                                .draw();
-                                        }
-                                    });
-                                    $('input').click(function(e) {
-                                        e.stopPropagation();
-                                    });
+                            $("#loader").text(""); // Hide loader once table is initialized
+
+                            let table = this;
+                            table.api().columns().every(function() {
+                                let column = this;
+
+                                // Get the column title
+                                let columnTitle = table.api().column(column.index())
+                                    .header().textContent;
+
+                                // Create a wrapper div for better styling
+                                let wrapper = document.createElement('div');
+                                wrapper.classList.add("input-group",
+                                    "mb-3"
+                                    ); // You can add Bootstrap classes for styling
+
+                                // Create a label element for the column name
+                                let label = document.createElement('label');
+                                label.textContent = columnTitle;
+                                label.classList.add("mr-2"); // Add margin for spacing
+
+
+                                // Create an input element
+                                let input = document.createElement('input');
+                                input.classList.add("form-control", "rounded",
+                                    "border-primary", "shadow");
+                                input.placeholder =
+                                    "Search"; // Add a placeholder for better user guidance
+
+                                // Append label and input to the wrapper
+                                wrapper.appendChild(label);
+                                wrapper.appendChild(input);
+
+                                // Append wrapper to the column header
+                                column.header().innerHTML =
+                                    ''; // Clear the existing header content
+                                column.header().appendChild(wrapper);
+
+                                // Add an event listener for input changes
+                                input.addEventListener('input', () => {
+                                    if (column.search() !== input.value) {
+                                        column.search(input.value).draw();
+                                    }
                                 });
-                        }, // initComplete END 
+
+                                // Prevent clicks on the input from propagating to the table header
+                                input.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                });
+                            });
+
+                            // Round numeric values in the table to two decimal places
+                            table.api().cells(function(idx, data, node) {
+                                return typeof data === 'number';
+                            }).render('display').draw(function(settings, data) {
+                                return parseFloat(data).toFixed(2);
+                            });
+                        },
                     }); // End Of Making the New Data Table 
 
                     addBtnEvent(); // After Making Table and Buttons , Adding Events to Buttons
