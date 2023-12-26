@@ -10,8 +10,8 @@
                     method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="float-right m-2 fa fa-trash button-solid btn btn-link border-0">
-                    </button>
+                    <input type="submit" name="" id="" value="Delete"
+                        class="float-right m-2  button-solid btn btn-link border-0">
                 </form>
             </div>
         </div>
