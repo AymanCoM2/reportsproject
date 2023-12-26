@@ -13,3 +13,26 @@ SELECT T100.ItemCode ,T100.ItemName , T11.OnHand 'STOCK' , T11.WhsCode , LEFT(T1
 From LB.DBO.Oitm T100 INNER JOIN LB.DBO.OITW T11 on T100.ITEMCODE =T11.ITEMCODE  
 WHERE T11.OnHand <> 0 AND T100.ItemName NOT LIKE N'%خصم%'
 -------------------------------
+
+
+<input type="submit" name="" id="" value="Delete" class="float-right m-2  button-solid btn btn-link border-0">
+----------------------
+Toastr Styling is Not Working Well 
+
+Double Clicking [ Delete Button For Example ] 
+Networking Refreshment 
+----------------------
+
+
+Make a RefreshMent Button to Get new Token [ I think we need LiveWire ]
+LATER:
+    - WE Can schedule a Queue to Delete/Truncate the Whole Table 
+        Of Expired Strings && also to Delete Old non-expired 
+------------------------------------------
+TWO problems We Have : 
+    - First Problem : The pivot table and the Timing [ And When To close it ]
+    - Second Problem : Concatenation Of the Code Python in the File  ; 
+------------------------------------------
+Make a Column For the Original Code , It will Be Written 
+and Re-Formatted whenever Something ; 
+------------------------------------------
