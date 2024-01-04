@@ -26,7 +26,7 @@ class DummyController extends Controller
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 "TrustServerCertificate" => true,
                 // "QueryTimeout" => 0.5,
-                PDO::ATTR_TIMEOUT => 60000000
+                // PDO::ATTR_TIMEOUT => 60000000
                 // "ConnectTimeout" => 2,
             ];
             $conn = new PDO("sqlsrv:server=$serverName,$port; Database = $databaseName;", $uid, $pwd, $options);
