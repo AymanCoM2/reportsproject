@@ -1,3 +1,13 @@
 SELECT T100.ItemCode ,T100.ItemName , T11.OnHand 'STOCK' , T11.WhsCode , LEFT(T11.WhsCode,2) 'LWhs' , RIGHT(T11.WhsCode,2)'RWhs'  
 From LB.DBO.Oitm T100 INNER JOIN LB.DBO.OITW T11 on T100.ITEMCODE =T11.ITEMCODE  
 WHERE T11.OnHand <> 0 AND T100.ItemName NOT LIKE N'%خصم%'
+-------------------------------
+SELECT T100.ItemCode ,T100.ItemName , T11.OnHand 'STOCK' , T11.WhsCode , LEFT(T11.WhsCode,2) 'LWhs' , RIGHT(T11.WhsCode,2)'RWhs'  
+From LB.DBO.Oitm T100 INNER JOIN LB.DBO.OITW T11 on T100.ITEMCODE =T11.ITEMCODE  
+WHERE T11.OnHand <> 0 AND T100.ItemName NOT LIKE N'%خصم%'
+-------------------------------
+<input type="submit" name="" id="" value="Delete" class="float-right m-2  button-solid btn btn-link border-0">
+
+    - When I made a Button and Gave it Class Of Trash Icon , It was NOT submitting
+    and It Disabled the Functionality Of the Button 
+-------------------------------

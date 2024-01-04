@@ -4,7 +4,6 @@ $php artisan app:firstuser  // Don't use it  ;
 
 Notes :
     - Don't Forget to Change env File "App_debug and DB pass"
-
 ================
 1- Speed and Performance Thing ; 
 2- Pivot Button "TO Refresh the Token also"

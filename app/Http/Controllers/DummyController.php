@@ -20,11 +20,14 @@ class DummyController extends Controller
             $serverName = "jou.is-by.us";
             $databaseName = $selectedDB;
             $uid = "ayman";
-            $port = "443";
+            $port = "445";
             $pwd = "admin@1234";
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 "TrustServerCertificate" => true,
+                // "QueryTimeout" => 0.5,
+                PDO::ATTR_TIMEOUT => 60000000
+                // "ConnectTimeout" => 2,
             ];
             $conn = new PDO("sqlsrv:server=$serverName,$port; Database = $databaseName;", $uid, $pwd, $options);
             $stmt = $conn->query($received_query);
