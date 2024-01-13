@@ -17,7 +17,8 @@ class DummyController extends Controller
             } else {
                 $selectedDB = 'LB'; // ! Default DB Name;
             }
-            $serverName = "jou.is-by.us";
+            // $serverName = "jou.is-by.us";
+            $serverName = "jdry1.ifrserp.net";
             $databaseName = $selectedDB;
             $uid = "ayman";
             $port = "445";
