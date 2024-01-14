@@ -13,11 +13,10 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = 'https://jou.mine.nu:8010/';
+    protected $redirectTo = 'https://jdash.ifrserp.net';
 
     // protected function redirectPath()
     // {
-    //     return 'https://jou.mine.nu:8010/';
     // }
     // public function redirectPath()
     // {
@@ -41,7 +40,7 @@ class LoginController extends Controller
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('https://jou.mine.nu:8010/');
+            : redirect('https://jdash.ifrserp.net');
     }
     /**
      * Where to redirect users after login.

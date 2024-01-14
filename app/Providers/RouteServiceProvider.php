@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = 'https://jou.mine.nu:8010';
+    public const HOME = 'https://jdash.ifrserp.net';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

@@ -39,7 +39,7 @@ class VeryFy
         ) {
             return $request->expectsJson()
                 ? abort(403, 'Your email address is not verified.')
-                : redirect('https://jou.mine.nu:8010/email/verify');
+                : redirect('https://jdash.ifrserp.net/email/verify');
         }
 
         return $next($request);
