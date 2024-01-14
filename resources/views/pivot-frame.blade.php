@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{{-- https://jou.mine.nu:8505 --}}
+
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <head>

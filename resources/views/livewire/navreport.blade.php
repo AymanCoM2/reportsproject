@@ -21,7 +21,7 @@
                 <ul class="menu-links">
                     @foreach ($allUserPivots as $uuid => $singlePivotGroup)
                         <li class="nav-link">
-                            <a href="https://jou.mine.nu:8505?name={{ $uuid }}">
+                            <a href="jpivot.ifrserp.net?name={{ $uuid }}">
                                 <i class="bx bxs-report icon"></i>
                                 <span class="text nav-text">
                                     Default
@@ -44,7 +44,7 @@
                         $tokenForSaving->save();
                     @endphp
                     <li class="nav-link" style="background-color: yellow;">
-                        <a href="https://jou.mine.nu:8505?name={{ $tokenForSaving->id }}">
+                        <a href="jpivot.ifrserp.net?name={{ $tokenForSaving->id }}">
                             <i class='bx bxs-report icon'></i>
                             <span class="text nav-text">New Collection</span>
                         </a>
@@ -63,7 +63,7 @@
     </nav>
     <section class="home mr-5">
         <iframe id="inlineFrameExample" title="Inline" class="w-100 h-100 "
-            src="https://jou.mine.nu:8505?name={{ $tokenForSaving->id }}">
+            src="jpivot.ifrserp.net?name={{ $tokenForSaving->id }}">
         </iframe>
     </section>
 </div>
