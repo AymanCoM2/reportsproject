@@ -15,7 +15,7 @@ class QueryOfReportController extends Controller
 {
     public function index()
     {
-      
+
         // TODO Pagination
         $allQueries = QueryOfReport::all();
         return view('pages.manage-queries.index', compact('allQueries'));
@@ -36,7 +36,7 @@ class QueryOfReportController extends Controller
         $newQuery->sql_query_string = $request->f_sql_query_string;
         $newQuery->db_name = $request->db_name;
         $newQuery->save();
-        if ($arrayOfTags) {
+        if ($arrayOfTags != null  || $arrayOfTags != []) {
             foreach ($arrayOfTags as $index => $tag) {
                 $tagLabel  = new QueryTag();
                 $tagLabel->tag = $tag;
