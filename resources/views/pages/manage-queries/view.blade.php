@@ -10,6 +10,10 @@
             <a href="{{ route('user-pivots', $singleQuery->id) }}" class=" btn btn-primary shadow" target="_blank">
                 {{ __('Pivot Page') }}
             </a>
+
+            <a href="{{ route('manage-pivots-get',$singleQuery->id) }}" class=" btn btn-primary shadow" target="_blank">
+                {{ __('Manage Pivots') }}
+            </a>
             <div class="card" style="display: none;">
                 <div class="card-body">
                     <div class="form-group">
@@ -46,8 +50,8 @@
     @section('extra-script')
         $(document).ready(function() {
             let theTExt = $('textarea#er').val();
-            console.log("Here is the Query : ");
-            console.log(`${theTExt}`)
+            // console.log("Here is the Query : ");
+            // console.log(`${theTExt}`)
             afterDocumentIsReady();
         }); // End OF Document Ready
 

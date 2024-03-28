@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/pivot-styling-1.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bootstrap5-editable/css/bootstrap-editable.css') }}">
+
     <title>Home Side Bar</title>
 </head>
 
@@ -18,6 +20,8 @@
     @livewire('Navreport', ['theQueryId' => $theQueryId])
     <script src="{{ asset('landing/vendor/jquery/jquery.js') }}"></script>
     <script src="{{ asset('js/pivot-js-1.js') }}"></script>
+    <script src={{ asset('bootstrap5-editable/js/bootstrap-editable.js') }}></script>
+
     <script>
         var links = document.querySelectorAll('a');
         links.forEach(function(link) {
@@ -75,6 +79,23 @@
                 }, // End of Error Option 
             }) // End Of Ajax call 
         } // End Of afterDocumentIsReady Function;  
+
+
+
+
+        $.fn.editable.defaults.ajaxOptions = {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        };
+
+        $(document).ready(function() {
+           
+            $.fn.editable.defaults.mode = 'inline';
+            $('.categoryReport').editable(
+
+            );
+        });
     </script>
 
 </body>

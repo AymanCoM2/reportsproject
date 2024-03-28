@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDO;
-
+ini_set('max_execution_time', 700); //180 =3 minutes
 class DummyController extends Controller
 {
     public function index(Request $request)

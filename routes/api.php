@@ -4,6 +4,7 @@ use App\Models\QueryPrivot;
 use App\Models\TempUd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
@@ -39,6 +40,8 @@ Route::post('/save-pivot', function (Request $request) {
     $qpvt->user_id = $userId;
     $qpvt->query_id = $queryId;
     $qpvt->original = $originalCode;
+    $randomString = Str::random(7);
+    $qpvt->pivot_name  = "Pivot"."-".$randomString ; 
     $qpvt->save();
   }
   return response()->json(['msg' => "Ok"]);

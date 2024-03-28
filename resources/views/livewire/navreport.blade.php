@@ -1,3 +1,4 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div>
     <nav class="sidebar border border-info">
         <input type="hidden" id="realCount" value="{{ $pivotsCount }}">
@@ -22,12 +23,16 @@
                     @foreach ($allUserPivots as $uuid => $singlePivotGroup)
                         <li class="nav-link">
                             <a href="https://jpivot.ifrserp.net?name={{ $uuid }}">
-                                <i class="bx bxs-report icon"></i>
-                                <span class="text nav-text">
-                                    Default
+                                <span class="text nav-text p-0">
+                                    {{ $singlePivotGroup->pivot_name ? $singlePivotGroup->pivot_name : 'Default' }} (View)
                                 </span>
                             </a>
                         </li>
+                        <a href="" class="categoryReport" data-type="text" class="p-1 mx-2"
+                        data-pk="{{ $singlePivotGroup->id }}"
+                        data-url="{{ route('rename-pivot', $singlePivotGroup->id) }}"
+                        data-title="Enter pivotname" data-csrf="{{ csrf_token() }}">
+                        {{ $singlePivotGroup->pivot_name ? $singlePivotGroup->pivot_name : 'Default' }}</a>
                     @endforeach
                     <hr />
                     <hr />
